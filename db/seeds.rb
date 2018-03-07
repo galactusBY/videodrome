@@ -31,6 +31,7 @@ end
    customer_ary << Customer.create!(full_name: Faker::Name.name, address: Faker::Address.street_address, dl_number: Faker::Number.number(6))
 end
 
+# Need to create logic for status to be false when rented
 100.times do
   movie_ary << Movie.create!(title: Faker::Lorem.sentence(0, true, 4), genre: genres.sample, format: formats.sample, status: true, year: years.sample, rental_cost: 3, barcode: 0001)
 end
