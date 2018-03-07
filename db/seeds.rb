@@ -1,7 +1,41 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+require 'faker'
+
+# User.create!(first_name: "Taylor", last_name: "Svendsen", password_hash: "password", employee_id: 123456)
 #
-# Examples:
+# Customer.create!(full_name: "Bob Jones", address: "123 Fake St", dl_number: 123456)
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Movie.create!(title: "Videodrome", genre: "Horror", format: "VHS", status: true, year: 1985, rental_cost: 3, barcode: 123456)
+#
+# Rental.create!(user_id: 1, customer_id: 1, movie_id: 1, rental_date: Date.today)
+
+User.destroy_all
+Customer.destroy_all
+Movie.destroy_all
+Rental.destroy_all
+
+genres = ["Horror", "Comedy", "Action", "Adventure", "Romance", "Thriller", "Drama", "Animation", "Science Fiction", "Documentary", "Musical", "Independent", "Fantasy", "Foreign", "Crime"]
+
+formats = ["VHS", "DVD", "Blu-ray"]
+
+years = *(1965..2018)
+
+user_ary = []
+customer_ary = []
+movie_ary = []
+
+10.times do
+  user_ary << User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password_hash: Faker::Internet.password(8), employee_id: Faker::Number.number(4))
+end
+
+50.times do
+   customer_ary << Customer.create!(full_name: Faker::Name.name, address: Faker::Address.street_address, dl_number: Faker::Number.number(6))
+end
+
+# Need to create logic for status to be false when rented
+100.times do
+  movie_ary << Movie.create!(title: Faker::Lorem.sentence(0, true, 4), genre: genres.sample, format: formats.sample, status: true, year: years.sample, rental_cost: 3, barcode: 0001)
+end
+
+20.times do
+  Rental.create!(user_id: user_ary.sample.id, customer_id: customer_ary.sample.id, movie_id: movie_ary.sample.id, rental_date: Date.today)
+end

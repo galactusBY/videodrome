@@ -28,6 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Allows for a table format of selected objects in Rails Console
+# Instructions found at https://github.com/cldwalker/hirb
+gem "hirb"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
