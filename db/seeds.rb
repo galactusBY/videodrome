@@ -35,4 +35,6 @@ end
   movie_ary << Movie.create!(title: Faker::Lorem.sentence(0, true, 4), genre: genres.sample, format: formats.sample, status: true, year: years.sample, rental_cost: 3, barcode: 0001)
 end
 
-Rental.create!(user_id: user_ary.sample.id, customer_id: customer_ary.sample.id, movie_id: movie_ary.sample.id, rental_date: Date.today)
+20.times do
+  Rental.create!(user_id: user_ary.sample.id, customer_id: customer_ary.sample.id, movie_id: movie_ary.sample.id, rental_date: Date.today)
+end
