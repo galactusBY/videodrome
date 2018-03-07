@@ -25,7 +25,6 @@ movie_ary = []
 
 10.times do
   user_ary << User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password_hash: Faker::Internet.password(8), employee_id: Faker::Number.number(4))
-
 end
 
 50.times do
@@ -36,4 +35,4 @@ end
   movie_ary << Movie.create!(title: Faker::Lorem.sentence(0, true, 4), genre: genres.sample, format: formats.sample, status: true, year: years.sample, rental_cost: 3, barcode: 0001)
 end
 
-Rental.create!(user_id: user_ary.sample, customer_id: customer_ary.sample, movie_id: movie_ary.sample, rental_date: Date.today)
+Rental.create!(user_id: user_ary.sample.id, customer_id: customer_ary.sample.id, movie_id: movie_ary.sample.id, rental_date: Date.today)
