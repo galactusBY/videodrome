@@ -33,7 +33,7 @@ end
 
 # Need to create logic for status to be false when rented
 100.times do
-  movie_ary << Movie.create!(title: Faker::Lorem.sentence(0, true, 4), genre: genres.sample, format: formats.sample, status: true, year: years.sample, rental_cost: 3, barcode: 0001)
+  movie_ary << Movie.create!(title: Faker::Lorem.sentence(1, true, 5), genre: genres.sample, format: formats.sample, status: true, year: years.sample, rental_cost: 3, barcode: 0001)
 end
 
 20.times do
