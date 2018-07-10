@@ -1,0 +1,11 @@
+<h1>Movies#show</h1>
+
+<div>
+  <h2>Title: <%= @movie.title %></h2>
+  <p>Genre: <%= @movie.genre %></p>
+  <p>Format: <%= @movie.format %></p>
+  <p>In Stock: <%= @movie.status %></p>
+  <p>Release Year: <%= @movie.year %></p>
+  <p>Rental Cost: <%= @movie.rental_cost %></p>
+  <p><%= link_to "Back", movies_path %></p>
+</div>
